@@ -1,0 +1,5 @@
+defaults :
+  - model : inference_division_bert_003
+  - hyper_parameter : exp_condition_1
+  - directory : directory_dict
+  - data : data_dict

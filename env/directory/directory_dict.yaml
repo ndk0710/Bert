@@ -1,0 +1,7 @@
+# @package _group_
+input_dir : './data/input'
+output_dir : './data/output'
+model_dir : './data/model'
+use_model_dir : './data/model/20240729_model_seed_42multi_testdata'
+test_dir : './data/test'
+set_tracking_uri_dir : './data/tracking'

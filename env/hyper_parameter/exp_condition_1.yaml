@@ -1,0 +1,8 @@
+# @package _group_
+SEED: 42
+N_FOLDS: 5
+random_state : 42
+max_epochs : 1
+train_test_split_size : 0.1
+train_val_split_size : 0.2
+gpus : 1

@@ -1,0 +1,17 @@
+# @package _group_
+exp_name : target_division_BERT
+exp_no : testdata
+create_date : '2024/07/16'
+last_update_date : '2024/07/16'
+division : 'MMA1X7'
+person_in_charge : 'Kurihara Masakazu'
+model_name : 'bert-base-multilingual-uncased'
+max_length : 512
+padding : 'max_length'
+truncation : True
+train_batch_size : 16
+train_shuffle : True
+val_batch_size : 64
+test_batch_size : 256
+lr : 1e-5
+text_component : {'title':20, 'additional1':20, 'additional2':20, 'additional3':20, 'comment':432}

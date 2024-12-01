@@ -1,0 +1,6 @@
+# @package _group_
+input_dataname : testdata
+test_dataname : test
+ans : label
+text : text
+index : 'no'
