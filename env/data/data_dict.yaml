@@ -1,5 +1,5 @@
 # @package _group_
-input_dataname : testdata
+input_dataname : testdata_sampling_1times
 test_dataname : test
 ans : label
 text : text

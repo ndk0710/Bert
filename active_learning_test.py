@@ -41,7 +41,8 @@ if __name__ == '__main__':
     cfg = set_config('config_multi_3')
     
     #データ読込み
-    original_data = pd.read_csv('./data/test/test.csv')
+    #original_data = pd.read_csv('./data/test/test.csv')
+    original_data = pd.read_csv('./data/input/testdata.csv')
 
     #ラベル情報取得
     labels = original_data.dropna(subset=['label'], axis=0)
@@ -109,7 +110,7 @@ if __name__ == '__main__':
         #サンプリング情報をカラムに格納
         pickup_list = [row[column_index] for row in pickup_samples]
         
-        original_data.loc[original_data['text'].isin(pickup_list), '1st_sammpling'] = 'True'
+        original_data.loc[original_data['text'].isin(pickup_list), '1st_sampling'] = 'True'
         check=0
 
     #サンプリング結果を記録

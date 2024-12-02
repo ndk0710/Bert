@@ -7,6 +7,9 @@ def load_train_data(cfg):
     data.dropna(how='all', axis=0, inplace=True)
     data = data[~data['text'].isnull()]
 
+    #サンプリング情報で絞る
+    data = data[data['1st_sampling'] == True]
+
     #data['language'] = data['Description'].fillna('').apply(judge_language2)
 
     data = data.reset_index()

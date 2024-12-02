@@ -18,7 +18,30 @@ def create_dataset(data, cfg, train_eval_flg):
     tokenizer.add_tokens(masters, special_tokens=True)'''
 
     if train_eval_flg == 'train':
-        train_data, test_data = train_test_split(data, test_size=cfg.hyper_parameter.train_test_split_size,
+        dataset_train = []
+
+        text = list(data[cfg.data.text].astype(str).values)
+        label = torch.from_numpy(data[cfg.data.ans].astype(int).values)
+        for j in range(len(data)):
+            encoding = tokenizer(
+                text[j],
+                max_length=cfg.model.max_length,
+                padding=cfg.model.padding,
+                truncation=cfg.model.truncation,
+            )
+            encoding['labels'] = label[j]
+            encoding = {k: torch.tensor(v, dtype=torch.int64) for k, v in encoding.items()}
+            dataset_train.append(encoding)
+        
+        dataloader_train = DataLoader(
+            dataset_train,
+            batch_size=cfg.model.train_batch_size,
+            shuffle=cfg.model.train_shuffle,
+        )
+
+        return dataloader_train, dataloader_train, dataloader_train, tokenizer
+
+        """train_data, test_data = train_test_split(data, test_size=cfg.hyper_parameter.train_test_split_size,
                                                  random_state=cfg.hyper_parameter.random_state, stratify=data['label'])
         train_data, valid_data = train_test_split(train_data, test_size=cfg.hyper_parameter.train_val_split_size,
                                                  random_state=cfg.hyper_parameter.random_state, stratify=train_data['label'])
@@ -62,7 +85,7 @@ def create_dataset(data, cfg, train_eval_flg):
             batch_size=cfg.model.test_batch_size,
         )
 
-        return dataloader_train, dataloader_val, dataloader_test, tokenizer
+        return dataloader_train, dataloader_val, dataloader_test, tokenizer"""
     
 
     else:
